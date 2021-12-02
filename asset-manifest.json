@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "./static/css/main.f7e09acb.chunk.css",
-    "main.js": "./static/js/main.84143470.chunk.js",
-    "main.js.map": "./static/js/main.84143470.chunk.js.map",
-    "runtime-main.js": "./static/js/runtime-main.3cff8ee0.js",
-    "runtime-main.js.map": "./static/js/runtime-main.3cff8ee0.js.map",
-    "static/js/2.2a3672bb.chunk.js": "./static/js/2.2a3672bb.chunk.js",
-    "static/js/2.2a3672bb.chunk.js.map": "./static/js/2.2a3672bb.chunk.js.map",
-    "index.html": "./index.html",
-    "static/css/main.f7e09acb.chunk.css.map": "./static/css/main.f7e09acb.chunk.css.map",
-    "static/js/2.2a3672bb.chunk.js.LICENSE.txt": "./static/js/2.2a3672bb.chunk.js.LICENSE.txt"
+    "main.css": "/react-minishop-app/static/css/main.f7e09acb.chunk.css",
+    "main.js": "/react-minishop-app/static/js/main.cd8a5f94.chunk.js",
+    "main.js.map": "/react-minishop-app/static/js/main.cd8a5f94.chunk.js.map",
+    "runtime-main.js": "/react-minishop-app/static/js/runtime-main.88ad9959.js",
+    "runtime-main.js.map": "/react-minishop-app/static/js/runtime-main.88ad9959.js.map",
+    "static/js/2.d8337111.chunk.js": "/react-minishop-app/static/js/2.d8337111.chunk.js",
+    "static/js/2.d8337111.chunk.js.map": "/react-minishop-app/static/js/2.d8337111.chunk.js.map",
+    "index.html": "/react-minishop-app/index.html",
+    "static/css/main.f7e09acb.chunk.css.map": "/react-minishop-app/static/css/main.f7e09acb.chunk.css.map",
+    "static/js/2.d8337111.chunk.js.LICENSE.txt": "/react-minishop-app/static/js/2.d8337111.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.3cff8ee0.js",
-    "static/js/2.2a3672bb.chunk.js",
+    "static/js/runtime-main.88ad9959.js",
+    "static/js/2.d8337111.chunk.js",
     "static/css/main.f7e09acb.chunk.css",
-    "static/js/main.84143470.chunk.js"
+    "static/js/main.cd8a5f94.chunk.js"
   ]
 }
