@@ -37,18 +37,14 @@ const Checkout = ({ orders = [], totalAmount }) => {
          initialValues: checkoutInitialValues,
          validationSchema: checkoutValidationSchema,
          onSubmit: (values) => {
-            alert(JSON.stringify(values, null, 2));
+            alert(JSON.stringify([values, ...orders], null, 2));
+            console.log([values, ...orders])
          },
       });
       return (
-         <div>
-            <form className="checkout__form" onSubmit={formik.handleSubmit} style={{
-               display: 'flex',
-               justifyContent: 'space-between'
-            }}>
-               <div className="checkout__fields" style={{
-                  flexBasis: '50%'
-               }}>
+         <>
+            <form className="checkout__form" onSubmit={formik.handleSubmit}>
+               <div className="checkout__fields">
                   <Typography className="checkout__title" variant="h5" component="h2">
                      Контактная информация
                   </Typography>
@@ -89,9 +85,7 @@ const Checkout = ({ orders = [], totalAmount }) => {
                      />
                   </div>
                </div>
-               <div className="checkout__check" style={{
-                  flexBasis: '40%'
-               }}>
+               <div className="checkout__check">
                   <Typography className="checkout__title" variant="h5" component="h2">
                      Оформление заказа
                   </Typography>
@@ -121,7 +115,7 @@ const Checkout = ({ orders = [], totalAmount }) => {
                   </Button>
                </div>
             </form>
-         </div>
+         </>
       );
    }
 

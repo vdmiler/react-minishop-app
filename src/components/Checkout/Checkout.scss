@@ -1,10 +1,28 @@
 .checkout__form {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   @media screen and (max-width: 935px) {
+      flex-direction: column;   
+   }
    .checkout__fields {
+      width: 50%;
       .checkout__title {
          margin-bottom: 20px;
       }
       .checkout__input {
          margin-bottom: 15px;
       }
+      @media screen and (max-width: 935px) {
+         width: 100%; 
+         margin-bottom: 20px;
+      }
    }
+   .checkout__check {
+      width: 40%;
+      @media screen and (max-width: 935px) {
+         width: 100%;  
+      }
+   }
+   
 }
