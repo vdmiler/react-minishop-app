@@ -22,6 +22,7 @@ const ProductsPagination = () => {
    const paginatePage = pageNumber => {
       dispatch(setCurrentPage(pageNumber))
    }
+
    const totalPages = Math.ceil(originProductData.length / productsPerPage);
    return (
       <div>

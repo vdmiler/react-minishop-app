@@ -9,6 +9,7 @@ const BasketItem = ({
    mainId,
    displayName,
    finalPrice,
+   clothingSize,
    quantity,
    plusQuantity = () => { },
    minusQuantity = () => { },
@@ -21,7 +22,8 @@ const BasketItem = ({
                flexBasis: '200px',
             }}
          >
-            {displayName} <strong>{finalPrice} грн. x 1</strong>
+            {displayName} <strong>{finalPrice} грн. x 1</strong> ({clothingSize})
+
          </ListItemText>
          <ListItemText
             sx={{

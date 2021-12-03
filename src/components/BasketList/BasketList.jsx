@@ -44,7 +44,6 @@ const BasketList = ({ orders = [], totalAmount }) => {
       const newOrder = orders.filter(elem => elem.mainId !== itemId);
       dispatch(setOrders(newOrder));
    }
-
    return (
       <List sx={{ width: '400px' }}>
          <ListItem>

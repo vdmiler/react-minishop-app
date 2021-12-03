@@ -9,7 +9,6 @@ import { setBasketShow } from '../../store/slices/basketSlice';
 const Header = ({ quantity }) => {
    const location = useLocation();
    const dispatch = useDispatch();
-
    return (
       <AppBar position="fixed">
          <Container fixed>

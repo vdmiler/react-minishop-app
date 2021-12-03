@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './ModalDetail.scss';
-import { Modal, Box, FormControl, InputLabel, Select, MenuItem, Typography, Button } from '@mui/material';
+import { Modal, Box, FormControl, InputLabel, Select, MenuItem, Typography, Button, Card, CardMedia, CardContent, CardActions } from '@mui/material';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import { setNoticeShow, setOrders } from '../../store/slices/basketSlice';
@@ -28,7 +28,6 @@ const ModalDetail = ({
       boxShadow: 24,
       p: 4,
    };
-
    const dispatch = useDispatch();
    const { orders } = useSelector(state => state.basket);
 
@@ -56,6 +55,33 @@ const ModalDetail = ({
       dispatch(setNoticeShow(true))
    }
 
+   const [errorField, setErrorField] = useState(false);
+
+   const handleSendToBasket = () => {
+      if (clothingSize !== '') {
+         addToBasket({
+            mainId,
+            displayName,
+            finalPrice,
+            clothingSize
+         });
+         setClothingSize('');
+         setTimeout(() => {
+            setActiveModal(false)
+         }, 1500)
+      } else {
+         setErrorField(true)
+      }
+   }
+
+   const handleChangeSize = e => {
+      setClothingSize(e.target.value);
+      if (e.target.value !== '') {
+         setErrorField(false)
+      } else {
+         setErrorField(true)
+      }
+   }
    return (
       <Modal
          open={isActiveModal}
@@ -63,28 +89,31 @@ const ModalDetail = ({
          aria-labelledby={displayName}
          aria-describedby={displayDescription}
       >
-         <Box sx={style}>
-            <Typography variant="h6" component="h2">
-               {displayName}
-            </Typography>
-            <Typography sx={{ mt: 2, mb: 2 }}>
-               {displayDescription}
-            </Typography>
-            <Box sx={{ textAlign: 'center' }}>
-               <img src={imageUrl} alt="" style={{ width: '360px', height: 'auto' }} />
-            </Box>
-            <Typography sx={{ mt: 2 }}>
-               Цена: {finalPrice}
-            </Typography>
-            <Box sx={{ maxWidth: 100, mt: 2 }}>
-               <FormControl fullWidth>
+         <Card sx={style}>
+            <CardMedia
+               component="img"
+               alt="green iguana"
+               height="auto"
+               image={imageUrl}
+            />
+            <CardContent>
+               <Typography gutterBottom variant="h5" component="div">
+                  {displayName}
+               </Typography>
+               <Typography variant="body2" color="text.secondary">
+                  {displayDescription}
+               </Typography>
+               <Typography sx={{ mt: 2, mb: 2, fontSize: '18px' }}>
+                  Цена: <span style={{ color: 'red' }}>{finalPrice} грн.</span>
+               </Typography>
+               <FormControl fullWidth error={errorField ? true : false}>
                   <InputLabel id="size-select-label">Размер:</InputLabel>
                   <Select
                      labelId="size-label"
                      id="size-select"
                      value={clothingSize}
                      label="Размер"
-                     onChange={e => setClothingSize(e.target.value)}
+                     onChange={handleChangeSize}
                   >
                      <MenuItem value="M">M</MenuItem>
                      <MenuItem value="L">L</MenuItem>
@@ -92,19 +121,24 @@ const ModalDetail = ({
                      <MenuItem value="XXL">XXL</MenuItem>
                   </Select>
                </FormControl>
-            </Box>
-            <Button
-               variant="outlined"
-               size="medium"
-               color="success"
-               sx={{ mt: 4 }}
-               onClick={() => addToBasket({
-                  mainId,
-                  displayName,
-                  finalPrice,
-                  clothingSize
-               })}>В корзину</Button>
-         </Box>
+            </CardContent>
+            <CardActions>
+               <Button
+                  variant="outlined"
+                  size="medium"
+                  color="success"
+                  sx={{
+                     mt: 4,
+                     ml: 'auto',
+                     mr: 'auto',
+                     display: 'block'
+                  }}
+                  onClick={handleSendToBasket}
+               >
+                  В корзину
+               </Button>
+            </CardActions>
+         </Card>
       </Modal>
    );
 }

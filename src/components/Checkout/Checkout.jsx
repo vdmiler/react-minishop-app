@@ -5,10 +5,15 @@ import { Button, List, ListItem, ListItemIcon, ListItemText, TextField, Typograp
 import { useNavigate } from 'react-router';
 import { useFormik } from 'formik';
 import RedeemIcon from '@mui/icons-material/Redeem';
+import { useDispatch } from 'react-redux';
+import { setOrders } from '../../store/slices/basketSlice';
 
 const Checkout = ({ orders = [], totalAmount }) => {
+   const dispatch = useDispatch();
    const navigate = useNavigate();
    const goBack = () => navigate(-1);
+   const goThanks = () => navigate('thanks', { replace: true })
+
    const checkoutValidationSchema = yup.object({
       name: yup
          .string()
@@ -39,6 +44,9 @@ const Checkout = ({ orders = [], totalAmount }) => {
          onSubmit: (values) => {
             alert(JSON.stringify([values, ...orders], null, 2));
             console.log([values, ...orders])
+            dispatch(setOrders([]));
+            localStorage.removeItem('orders');
+            goThanks();
          },
       });
       return (
@@ -98,7 +106,7 @@ const Checkout = ({ orders = [], totalAmount }) => {
                                     <RedeemIcon />
                                  </ListItemIcon>
                                  <ListItemText>
-                                    {order.displayName} X {order.quantity}
+                                    {order.displayName} X {order.quantity} ({order.clothingSize})
                                  </ListItemText>
                               </ListItem>
                            )
@@ -118,7 +126,6 @@ const Checkout = ({ orders = [], totalAmount }) => {
          </>
       );
    }
-
    return (
       <>
          <Typography variant="h4" component="h1" sx={{ mb: 8 }}>

@@ -25,6 +25,8 @@ const ProductItem = (props) => {
                   height="auto"
                   image={imageUrl}
                   alt="green iguana"
+                  sx={{ cursor: 'pointer' }}
+                  onClick={() => setActiveModal(true)}
                />
                <CardContent>
                   <Typography gutterBottom variant="h5" component="div">

@@ -9,6 +9,7 @@ import Shop from './components/Shop/Shop';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchProductData } from './store/slices/productDataSlice';
 import { setOrders, setTotalAmount } from './store/slices/basketSlice';
+import Thanks from './components/Thanks/Thanks';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -54,6 +55,10 @@ const App = () => {
           <Route
             path="checkout"
             element={<Checkout orders={orders} totalAmount={totalAmount} />}
+          />
+          <Route
+            path="checkout/thanks"
+            element={<Thanks />}
           />
         </Routes>
       </Container>
