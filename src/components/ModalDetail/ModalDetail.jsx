@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import './ModalDetail.scss';
-import { Modal, Box, FormControl, InputLabel, Select, MenuItem, Typography, Button, Card, CardMedia, CardContent, CardActions } from '@mui/material';
-import { useDispatch } from 'react-redux';
-import { useSelector } from 'react-redux';
+import { Modal, FormControl, InputLabel, Select, MenuItem, Typography, Button, Card, CardMedia, CardContent, CardActions } from '@mui/material';
+import { useDispatch, useSelector } from 'react-redux';
+import CancelPresentationIcon from '@mui/icons-material/CancelPresentation';
 import { setNoticeShow, setOrders } from '../../store/slices/basketSlice';
 
 const ModalDetail = ({
@@ -21,8 +21,10 @@ const ModalDetail = ({
       top: '50%',
       left: '50%',
       transform: 'translate(-50%, -50%)',
-      maxWidth: 400,
-      width: '100%',
+      width: {
+         xs: '260px',
+         sm: '400px'
+      },
       bgcolor: 'background.paper',
       border: '2px solid #000',
       boxShadow: 24,
@@ -90,6 +92,17 @@ const ModalDetail = ({
          aria-describedby={displayDescription}
       >
          <Card sx={style}>
+            <Button
+               color="success"
+               sx={{
+                  position: 'absolute',
+                  top: '-3px',
+                  right: '-15px'
+               }}
+               onClick={() => setActiveModal(false)}
+            >
+               <CancelPresentationIcon />
+            </Button>
             <CardMedia
                component="img"
                alt="green iguana"

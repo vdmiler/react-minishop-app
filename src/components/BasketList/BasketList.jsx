@@ -45,7 +45,7 @@ const BasketList = ({ orders = [], totalAmount }) => {
       dispatch(setOrders(newOrder));
    }
    return (
-      <List sx={{ width: '400px' }}>
+      <List sx={{ width: { xs: '290px', sm: '400px' } }}>
          <ListItem>
             <ListItemIcon>
                <ShoppingCart />

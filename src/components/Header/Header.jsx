@@ -5,6 +5,7 @@ import ShoppingCart from '@mui/icons-material/ShoppingCart';
 import { useLocation } from 'react-router';
 import { useDispatch } from 'react-redux';
 import { setBasketShow } from '../../store/slices/basketSlice';
+import { Link } from 'react-router-dom';
 
 const Header = ({ quantity }) => {
    const location = useLocation();
@@ -15,8 +16,13 @@ const Header = ({ quantity }) => {
             <Toolbar>
                <Typography
                   variant="h6"
-                  component="span"
-                  sx={{ flexGrow: 1 }}
+                  component={Link}
+                  sx={{
+                     flexGrow: 1,
+                     textDecoration: 'none',
+                     color: 'white'
+                  }}
+                  to="/"
                >
                   Mini Market
                </Typography>

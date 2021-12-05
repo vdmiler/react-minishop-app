@@ -10,6 +10,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchProductData } from './store/slices/productDataSlice';
 import { setOrders, setTotalAmount } from './store/slices/basketSlice';
 import Thanks from './components/Thanks/Thanks';
+import Footer from './components/Footer/Footer';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -42,7 +43,7 @@ const App = () => {
   }, [orders])
 
   return (
-    <>
+    <div className="page">
       <Header quantity={orders.length} />
       <Container sx={{ pt: '120px', pb: '88px' }}>
         <Routes>
@@ -62,7 +63,8 @@ const App = () => {
           />
         </Routes>
       </Container>
-    </>
+      <Footer />
+    </div>
   );
 }
 
