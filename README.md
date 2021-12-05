@@ -1,5 +1,7 @@
 ## MiNi Shop with React.js, Material UI, Redux ToolKit
 
+[Imgur](https://imgur.com/3t41AcC)
+
 Showcase of an online store, which is constantly updated
 
 In this project I mastered:
