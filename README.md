@@ -1,6 +1,6 @@
 ## MiNi Shop with React.js, Material UI, Redux ToolKit
 
-[Imgur](https://imgur.com/3t41AcC)
+![mini-shop](https://user-images.githubusercontent.com/64083482/144760671-8a897693-82f2-4e82-a463-a8665dde801a.gif)
 
 Showcase of an online store, which is constantly updated
 
